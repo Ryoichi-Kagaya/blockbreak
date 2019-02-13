@@ -1,0 +1,7 @@
+﻿  block.cpp
+c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\block.cpp(86): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  main.cpp
+c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\main.cpp(29): warning C4302: '型キャスト': 'LPSTR' から 'WORD' へ切り詰めます。
+c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\main.cpp(30): warning C4302: '型キャスト': 'LPSTR' から 'WORD' へ切り詰めます。
+  コードを生成中...
+  blockbreak_02.vcxproj -> C:\Users\ryoichi\source\repos\blockbreak_02\Debug\blockbreak_02.exe
