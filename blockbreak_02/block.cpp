@@ -8,8 +8,7 @@ int BLOCK::gh = -1;
 BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, int x, int y)
 {
 	//最初しか読み込まない。
-	if (gh == -1)
-		LoadIMG();
+	if (gh == -1) Load();
 
 	//GetGraphSize(gh, &width, &height);
 	this->pDevice3D = pDevice3D;
@@ -27,7 +26,7 @@ BLOCK::~BLOCK() {
 	pTexture->Release();
 }
 
-bool BLOCK::LoadIMG()
+bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
 {
 	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, "block.bmp", &pTexture))) {
 		return false; // 画像読み込み失敗（ファイルがない可能性あり）

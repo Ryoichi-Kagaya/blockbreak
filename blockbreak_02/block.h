@@ -22,8 +22,8 @@ private:
 
 
 private:
-	
-
+	bool Load();
+	void Draw();
 
 public:
 	IDirect3DTexture9* pTexture;
@@ -31,9 +31,7 @@ public:
 
 	BLOCK(IDirect3DDevice9* pDevice3D, int x, int y);
 	~BLOCK();
-
-	void Draw();
-	bool LoadIMG();
+	
 	int GetX();
 	int GetY();
 	int GetWidth();

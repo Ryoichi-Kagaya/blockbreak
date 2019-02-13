@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Direct3D.h"
-#include "Texture.h"
 #include "Sprite.h"
 #include "block.h"
 #include <Windows.h>
@@ -43,26 +42,15 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		CW_USEDEFAULT, CW_USEDEFAULT, WINDOW_WIDTH, WINDOW_HEIGHT, NULL, NULL, hInstance, NULL);
 
 	////////////////////////////////////////////////////////////////////////////
-	//      Direct3Dの初期化
+	// Direct3Dの初期化
 	////////////////////////////////
 	Direct3D direct3d;
 	direct3d.Create(hWnd, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	////////////////////////////////
-	// テクスチャ作成
+	// ブロック作成
 	////////////////////////////////
 	BLOCK block(direct3d.pDevice3D, 100, 100);
-
-	////////////////////////////////
-	// スプライト作成
-	////////////////////////////////
-	Sprite sprite[2];
-
-	sprite[0].SetPos(100, 100);
-	sprite[0].SetWidth(100, 28);
-
-	sprite[1].SetPos(300, 300);
-	sprite[1].SetWidth(100, 28);
 
 	////////////////////////////////////////////////////////////////
 
@@ -81,16 +69,12 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			// 描画開始
 			if (SUCCEEDED(direct3d.pDevice3D->BeginScene()))
 			{
-				DWORD ClearColor = 0xff808080;	// 背景クリア色
 				// 背景クリア
+				DWORD ClearColor = 0xff808080;	// 背景クリア色
 				direct3d.pDevice3D->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_STENCIL | D3DCLEAR_ZBUFFER, ClearColor, 1.0f, 0);
-
-				// スプライト描画
-				for (int i = 0; i < 2; ++i) {
-					//sprite[i].Draw(direct3d.pDevice3D, block.pTexture);
-				}
 				
-				block.Draw();
+				// ブロック描画
+				block.All();
 
 				// 描画終了
 				direct3d.pDevice3D->EndScene();
