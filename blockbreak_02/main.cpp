@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Direct3D.h"
+#include "Texture.h"
 #include "Sprite.h"
 #include "block.h"
 
@@ -73,6 +74,14 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 				
 				// ブロック描画
 				block.All();
+
+				// XXX: Textureクラス, Spriteクラスから、ブロック作成は成功
+				Texture tex;
+				tex.Load(direct3d.pDevice3D, _T("block.bmp"));
+				Sprite sprite;
+				sprite.SetWidth(100, 28);
+				sprite.SetPos(100, 300);
+				sprite.Draw(direct3d.pDevice3D, tex.pTexture);
 
 				// 描画終了
 				direct3d.pDevice3D->EndScene();
