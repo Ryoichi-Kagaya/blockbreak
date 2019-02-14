@@ -22,16 +22,16 @@ private:
 
 
 private:
+	const TCHAR* FileName;
+	bool SetSize();
 	bool Load();
 	void Draw();
 
 public:
 	IDirect3DTexture9* pTexture;
 	IDirect3DDevice9* pDevice3D;
-
 	BLOCK(IDirect3DDevice9* pDevice3D, float x, float y);
 	~BLOCK();
-	
 	float GetX();
 	float GetY();
 	int GetWidth();

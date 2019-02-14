@@ -3,14 +3,13 @@
 #include "Texture.h"
 #include "Sprite.h"
 
-
+const TCHAR* FileName = _T("block.bmp");
 int BLOCK::gh = -1;
 
 BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 {
 	//最初しか読み込まない。
 	//if (gh == -1) Load();
-	Load();
 
 	//GetGraphSize(gh, &width, &height);
 	this->pDevice3D = pDevice3D;
@@ -28,11 +27,21 @@ BLOCK::~BLOCK() {
 	if (pTexture != NULL) pTexture->Release();
 }
 
+bool SetSize()
+{
+	// テクスチャサイズの取得
+	D3DSURFACE_DESC desc;
+	if (FAILED(tex->GetLevelDesc(0, &desc)))
+	{
+		return false;
+	}
+
+	*pX = desc.Width;
+	*pY = desc.Height;
+}
+
 bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
 {
-	const TCHAR* FileName;
-	FileName = _T("block.bmp");
-
 	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
 		return false; // 画像読み込み失敗（ファイルがない可能性あり）
 	}
@@ -94,7 +103,7 @@ void BLOCK::Draw()
 
 	// XXX: Textureクラスを呼び出したら上手くいった。釈然としないが、とりあえずは動くものを作る
 	Texture tex;
-	tex.Load(pDevice3D, _T("block.bmp"));
+	tex.Load(pDevice3D, FileName);
 	Sprite sprite;
 	sprite.SetWidth(100, 28);
 	sprite.SetPos(x, y);
