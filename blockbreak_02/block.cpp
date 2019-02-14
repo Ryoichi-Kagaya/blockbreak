@@ -18,6 +18,8 @@ BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 
 	this->x = x;
 	this->y = y;
+	width = 100;
+	height = 28;
 
 	count = 0;
 
@@ -27,17 +29,16 @@ BLOCK::~BLOCK() {
 	if (pTexture != NULL) pTexture->Release();
 }
 
-bool SetSize()
+bool BLOCK::SetSize(IDirect3DTexture9* pTexture) // XXX: 画像サイズの自動取得が上手くいかない。これも保留。クラス内でテクスチャ作れないのか？
 {
 	// テクスチャサイズの取得
 	D3DSURFACE_DESC desc;
-	if (FAILED(tex->GetLevelDesc(0, &desc)))
-	{
-		return false;
-	}
+	if (FAILED(pTexture->GetLevelDesc(0, &desc))) return false;
 
-	*pX = desc.Width;
-	*pY = desc.Height;
+	width = desc.Width;
+	height = desc.Height;
+
+	return true;
 }
 
 bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
@@ -102,10 +103,11 @@ void BLOCK::Draw()
 	*/
 
 	// XXX: Textureクラスを呼び出したら上手くいった。釈然としないが、とりあえずは動くものを作る
+	// XXX: 外からファイル名持ってきたら失敗
 	Texture tex;
-	tex.Load(pDevice3D, FileName);
+	tex.Load(pDevice3D, _T("block.bmp"));
 	Sprite sprite;
-	sprite.SetWidth(100, 28);
+	sprite.SetWidth(width, height);
 	sprite.SetPos(x, y);
 	sprite.Draw(pDevice3D, tex.pTexture);
 }

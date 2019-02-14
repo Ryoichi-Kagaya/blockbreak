@@ -1,6 +1,6 @@
 #pragma once
 #include "pch.h"
-
+#include "Texture.h"
 
 class BLOCK {
 private:
@@ -23,7 +23,7 @@ private:
 
 private:
 	const TCHAR* FileName;
-	bool SetSize();
+	bool SetSize(IDirect3DTexture9* pTexture);
 	bool Load();
 	void Draw();
 
