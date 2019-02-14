@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "block.h"
 #include "Sprite.h"
+#include <tchar.h>
 
 
 int BLOCK::gh = -1;
@@ -23,13 +24,13 @@ BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, int x, int y)
 }
 
 BLOCK::~BLOCK() {
-	pTexture->Release();
+	if (pTexture != NULL) pTexture->Release();
 }
 
 bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
 {
 	const TCHAR* FileName;
-	FileName = "block.bmp";
+	FileName = _T("block.bmp");
 
 	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
 		return false; // 画像読み込み失敗（ファイルがない可能性あり）
