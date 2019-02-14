@@ -28,7 +28,10 @@ BLOCK::~BLOCK() {
 
 bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
 {
-	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, "block.bmp", &pTexture))) {
+	const TCHAR* FileName;
+	FileName = "block.bmp";
+
+	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
 		return false; // 画像読み込み失敗（ファイルがない可能性あり）
 	}
 	else {

@@ -70,7 +70,7 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			if (SUCCEEDED(direct3d.pDevice3D->BeginScene()))
 			{
 				// 背景クリア
-				DWORD ClearColor = 0xff808080;	// 背景クリア色
+				DWORD ClearColor = 0xff000000;	// 背景クリア色
 				direct3d.pDevice3D->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_STENCIL | D3DCLEAR_ZBUFFER, ClearColor, 1.0f, 0);
 				
 				// ブロック描画
