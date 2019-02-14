@@ -1,15 +1,15 @@
 #include "pch.h"
 #include "block.h"
 #include "Sprite.h"
-#include <tchar.h>
 
 
 int BLOCK::gh = -1;
 
-BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, int x, int y)
+BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 {
 	//最初しか読み込まない。
-	if (gh == -1) Load();
+	//if (gh == -1) Load();
+	Load();
 
 	//GetGraphSize(gh, &width, &height);
 	this->pDevice3D = pDevice3D;
@@ -30,7 +30,7 @@ BLOCK::~BLOCK() {
 bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
 {
 	const TCHAR* FileName;
-	FileName = _T("block.bmp");
+	FileName = TEXT("block.bmp");
 
 	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
 		return false; // 画像読み込み失敗（ファイルがない可能性あり）

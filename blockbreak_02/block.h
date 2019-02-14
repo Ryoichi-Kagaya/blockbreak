@@ -5,7 +5,7 @@
 class BLOCK {
 private:
 	//ç¿ïW
-	int x, y;
+	float x, y;
 
 	//ècÅAâ°ïù
 	int width, height;
@@ -29,11 +29,11 @@ public:
 	IDirect3DTexture9* pTexture;
 	IDirect3DDevice9* pDevice3D;
 
-	BLOCK(IDirect3DDevice9* pDevice3D, int x, int y);
+	BLOCK(IDirect3DDevice9* pDevice3D, float x, float y);
 	~BLOCK();
 	
-	int GetX();
-	int GetY();
+	float GetX();
+	float GetY();
 	int GetWidth();
 	int GetHeight();
 	void SetFlag(bool endflag);
