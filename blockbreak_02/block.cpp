@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "block.h"
+#include "Texture.h"
 #include "Sprite.h"
 
 
@@ -84,10 +85,20 @@ void BLOCK::Draw()
 		}
 	}*/
 
+	/*
 	Sprite sprite;
 	sprite.SetWidth(100, 28);
 	sprite.SetPos(x, y);
 	sprite.Draw(pDevice3D, pTexture);
+	*/
+
+	// XXX: Textureクラスを呼び出したら上手くいった。釈然としないが、とりあえずは動くものを作る
+	Texture tex;
+	tex.Load(pDevice3D, _T("block.bmp"));
+	Sprite sprite;
+	sprite.SetWidth(100, 28);
+	sprite.SetPos(x, y);
+	sprite.Draw(pDevice3D, tex.pTexture);
 }
 
 void BLOCK::All()

@@ -1,4 +1,2 @@
-﻿  main.cpp
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\main.cpp(27): warning C4302: '型キャスト': 'LPSTR' から 'WORD' へ切り詰めます。
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\main.cpp(28): warning C4302: '型キャスト': 'LPSTR' から 'WORD' へ切り詰めます。
+﻿  block.cpp
   blockbreak_02.vcxproj -> C:\Users\ryoichi\source\repos\blockbreak_02\Debug\blockbreak_02.exe
