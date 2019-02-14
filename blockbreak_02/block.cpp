@@ -40,11 +40,11 @@ bool BLOCK::Load() // XXX: ‚±‚±‚Å‰æ‘œ‚Ì“Ç‚İ‚İ‚ªãè‚­‚¢‚Á‚Ä‚¢‚È‚¢
 	}
 }
 
-int BLOCK::GetX()
+float BLOCK::GetX()
 {
 	return x;
 }
-int BLOCK::GetY()
+float BLOCK::GetY()
 {
 	return y;
 }
