@@ -30,7 +30,7 @@ BLOCK::~BLOCK() {
 bool BLOCK::Load() // XXX: ここで画像の読み込みが上手くいっていない
 {
 	const TCHAR* FileName;
-	FileName = TEXT("block.bmp");
+	FileName = _T("block.bmp");
 
 	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
 		return false; // 画像読み込み失敗（ファイルがない可能性あり）

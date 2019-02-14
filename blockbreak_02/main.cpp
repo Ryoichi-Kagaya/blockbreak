@@ -2,8 +2,6 @@
 #include "Direct3D.h"
 #include "Sprite.h"
 #include "block.h"
-#include <Windows.h>
-#include <tchar.h>
 
 // ウィンドウプロシージャ、ウィンドウに対するメッセージ処理を行う
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
