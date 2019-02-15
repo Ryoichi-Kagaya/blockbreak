@@ -3,7 +3,6 @@
 #include "Texture.h"
 #include "Sprite.h"
 
-const TCHAR* FileName = _T("block.bmp");
 int BLOCK::gh = -1;
 
 BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
@@ -41,7 +40,7 @@ bool BLOCK::SetSize(IDirect3DTexture9* pTexture) // XXX: ‰æ‘œƒTƒCƒY‚Ì©“®æ“¾‚ª
 	return true;
 }
 
-bool BLOCK::Load() // XXX: ‚±‚±‚Å‰æ‘œ‚Ì“Ç‚İ‚İ‚ªãè‚­‚¢‚Á‚Ä‚¢‚È‚¢
+bool BLOCK::Load(const TCHAR* FileName) // XXX: ‚±‚±‚Å‰æ‘œ‚Ì“Ç‚İ‚İ‚ªãè‚­‚¢‚Á‚Ä‚¢‚È‚¢
 {
 	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
 		return false; // ‰æ‘œ“Ç‚İ‚İ¸”siƒtƒ@ƒCƒ‹‚ª‚È‚¢‰Â”\«‚ ‚èj
@@ -95,15 +94,9 @@ void BLOCK::Draw()
 		}
 	}*/
 
-	/*
-	Sprite sprite;
-	sprite.SetWidth(100, 28);
-	sprite.SetPos(x, y);
-	sprite.Draw(pDevice3D, pTexture);
-	*/
-
 	// XXX: TextureƒNƒ‰ƒX‚ğŒÄ‚Ño‚µ‚½‚çãè‚­‚¢‚Á‚½Bß‘R‚Æ‚µ‚È‚¢‚ªA‚Æ‚è‚ ‚¦‚¸‚Í“®‚­‚à‚Ì‚ğì‚é
 	// XXX: ŠO‚©‚çƒtƒ@ƒCƒ‹–¼‚Á‚Ä‚«‚½‚ç¸”s
+	//const TCHAR* FileName = _T("block.bmp");
 	Texture tex;
 	tex.Load(pDevice3D, _T("block.bmp"));
 	Sprite sprite;
