@@ -4,27 +4,12 @@
 class BLOCK {
 
 private:
-
-	//座標
-	float x, y;
-
-	//ブロックが壊れてるか壊れてないかのフラグ。
-	bool endflag;
-
-	//グラフィックハンドル。
-	//全部同じ画像なので静的変数にして共有。
-	static int gh;
-
-	//フェード描画用カウント
-	int count;
-
+	float x, y; //座標
+	bool endflag; //ブロックが壊れてるか壊れてないかのフラグ
 	void Draw();
 
 public:
-
-	//縦、横幅
-	static const int width, height;
-
+	static const int width, height; //縦、横幅
 	IDirect3DTexture9* pTexture;
 	IDirect3DDevice9* pDevice3D;
 	BLOCK(IDirect3DDevice9* pDevice3D, float x, float y);

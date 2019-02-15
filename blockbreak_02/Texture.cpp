@@ -21,9 +21,9 @@ bool Texture::Load(IDirect3DDevice9* pDevice3D, const TCHAR* FileName)
 	// DirextXやWindowsAPIの関数はHRESULTを結果に返す関数が多い
 	// FAILEDマクロで関数が失敗したかわかる
 	// SUCEEDEDマクロで関数が成功したかわかる
-	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture)))
-		return false;	// 画像読み込み失敗（ファイルがない可能性あり）
-
-	// 画像読み込み成功
-	return true;
+	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))){
+		return false; // 画像読み込み失敗（ファイルがない可能性あり）
+	} else {
+		return true; // 画像読み込み成功
+	}
 }

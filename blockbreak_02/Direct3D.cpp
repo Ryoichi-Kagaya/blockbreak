@@ -21,6 +21,7 @@ bool Direct3D::Create(HWND hWnd, int Width, int Height) {
 
 	// Direct3D9オブジェクトの作成	
 	pD3D9 = Direct3DCreate9(D3D_SDK_VERSION);
+
 	// ディスプレイ情報取得
 	D3DDISPLAYMODE Display;
 	pD3D9->GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &Display);
