@@ -4,6 +4,8 @@
 #include "Sprite.h"
 
 int BLOCK::gh = -1;
+const int BLOCK::width = 100; // XXX: 画像変更する場合、どうしよう…
+const int BLOCK::height = 28;
 
 BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 {
@@ -17,8 +19,6 @@ BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 
 	this->x = x;
 	this->y = y;
-	width = 100;
-	height = 28;
 
 	count = 0;
 
@@ -28,28 +28,6 @@ BLOCK::~BLOCK() {
 	if (pTexture != NULL) pTexture->Release();
 }
 
-bool BLOCK::SetSize(IDirect3DTexture9* pTexture) // XXX: 画像サイズの自動取得が上手くいかない。これも保留。クラス内でテクスチャ作れないのか？
-{
-	// テクスチャサイズの取得
-	D3DSURFACE_DESC desc;
-	if (FAILED(pTexture->GetLevelDesc(0, &desc))) return false;
-
-	width = desc.Width;
-	height = desc.Height;
-
-	return true;
-}
-
-bool BLOCK::Load(const TCHAR* FileName) // XXX: ここで画像の読み込みが上手くいっていない
-{
-	if (FAILED(D3DXCreateTextureFromFile(pDevice3D, FileName, &pTexture))) {
-		return false; // 画像読み込み失敗（ファイルがない可能性あり）
-	}
-	else {
-		return true; // 画像読み込み成功
-	}
-}
-
 float BLOCK::GetX()
 {
 	return x;
@@ -57,14 +35,6 @@ float BLOCK::GetX()
 float BLOCK::GetY()
 {
 	return y;
-}
-int BLOCK::GetWidth()
-{
-	return width;
-}
-int BLOCK::GetHeight()
-{
-	return height;
 }
 
 void BLOCK::SetFlag(bool flag)
