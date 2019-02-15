@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Sprite.h"
 #include "block.h"
+#include "control.h"
 
 // ウィンドウプロシージャ、ウィンドウに対するメッセージ処理を行う
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
@@ -51,6 +52,11 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	////////////////////////////////
 	BLOCK block(direct3d.pDevice3D, 100, 100);
 
+	////////////////////////////////
+	// コントロール作成
+	////////////////////////////////
+	CONTROL control(direct3d.pDevice3D);
+
 	////////////////////////////////////////////////////////////////
 
 	// メッセージループ
@@ -72,16 +78,8 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 				DWORD ClearColor = 0xff000000;	// 背景クリア色
 				direct3d.pDevice3D->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_STENCIL | D3DCLEAR_ZBUFFER, ClearColor, 1.0f, 0);
 				
-				// ブロック描画
-				block.All();
-
-				// XXX: Textureクラス, Spriteクラスから、ブロック作成は成功
-				Texture tex;
-				tex.Load(direct3d.pDevice3D, _T("block.bmp"));
-				Sprite sprite;
-				sprite.SetWidth(100, 28);
-				sprite.SetPos(100, 300);
-				sprite.Draw(direct3d.pDevice3D, tex.pTexture);
+				// コントロール作動！
+				control.All();
 
 				// 描画終了
 				direct3d.pDevice3D->EndScene();
