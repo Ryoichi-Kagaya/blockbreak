@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "input.h"
 #define SPEED 4
+#define wWidth 640
 
 class BAR {
 private:
@@ -23,7 +24,7 @@ private:
 
 public:
 	static const int width, height; //ècÅAâ°ïù
-	BAR(IDirect3DDevice9* pDevice3D, HWND hwnd);
+	BAR(HWND hwnd, IDirect3DDevice9* pDevice3D);
 	~BAR();
 	bool All();
 	int GetX();

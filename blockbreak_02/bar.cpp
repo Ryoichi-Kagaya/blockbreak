@@ -6,20 +6,19 @@
 const int BAR::width = 100; // XXX: 画像変更する場合、どうしよう…
 const int BAR::height = 14;
 
-BAR::BAR(IDirect3DDevice9* pDevice3D, HWND hwnd)
+BAR::BAR(HWND hwnd, IDirect3DDevice9* pDevice3D)
 {
 	// 3Dデバイスを取り込む
 	this->pDevice3D = pDevice3D;
 
 	// インプットを作成
-	Input input(hwnd);
-	this->input = &input;
+	input = new Input(hwnd);
 
 	//y座標は固定なのでここで設定
 	y = 460;
 
 	//最初は真ん中
-	x = width / 2;
+	x = wWidth / 2;
 
 	//終了フラグは偽にしとく
 	endflag = false;
@@ -57,7 +56,7 @@ void BAR::KeyGet()
 
 	//画面のはみ出し処理
 	if (x < width / 2) x = width / 2;
-	if (x > width - width / 2) x = width - width / 2;
+	if (x > wWidth - width / 2) x = wWidth - width / 2;
 
 }
 
@@ -95,6 +94,7 @@ void BAR::Destroy() {
 BAR::~BAR()
 {
 	if (pDevice3D != NULL) pDevice3D->Release();
+	delete input;
 	Destroy();
 
 }

@@ -1,4 +1,5 @@
 #pragma once
+#pragma comment(lib, "dinput8.lib")
 #define DIRECTINPUT_VERSION 0x0800
 #define KEY_MAX 256
 

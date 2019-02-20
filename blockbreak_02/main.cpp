@@ -47,14 +47,9 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	direct3d.Create(hWnd, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	////////////////////////////////
-	// ブロック作成
-	////////////////////////////////
-	BLOCK block(direct3d.pDevice3D, 100, 100);
-
-	////////////////////////////////
 	// コントロール作成
 	////////////////////////////////
-	CONTROL control(direct3d.pDevice3D);
+	CONTROL control(hWnd, direct3d.pDevice3D);
 
 	////////////////////////////////////////////////////////////////
 

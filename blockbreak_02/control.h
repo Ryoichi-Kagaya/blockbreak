@@ -1,6 +1,6 @@
 #pragma once
 #include "pch.h"
-//#include "bar.h"
+#include "bar.h"
 //#include "ball.h"
 #include "block.h"
 
@@ -8,7 +8,7 @@ class CONTROL {
 private:
 
 	//バークラスのポインタ
-	//BAR *bar;
+	BAR *bar;
 
 	//ボールクラスのポインタ
 	//BALL *ball;
@@ -31,14 +31,13 @@ private:
 	//バウンド音とぶつかり音のサウンドハンドル
 	int bh, dh;
 
-private:
 	void HitCheckBallAndBar();
 	void HitCheckBallAndBlock();
 	void SoundPlay();
 
 public:
 	bool All();
-	CONTROL(IDirect3DDevice9* pDevice3);
+	CONTROL(HWND hwnd, IDirect3DDevice9* pDevice3);
 	~CONTROL();
 };
 

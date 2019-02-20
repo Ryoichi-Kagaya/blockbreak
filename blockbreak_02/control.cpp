@@ -9,17 +9,17 @@ void CONTROL::HitCheckBallAndBar()
 
 	//ボールクラス内での音フラグをセット
 	boundflag = ball->GetSoundflag();
-
+	*/
 
 	//バーの座標取得
 	bdx = bar->GetX();
 	bdy = bar->GetY();
 
 	//ボールの座標取得
-	blx = ball->GetX();
-	bly = ball->GetY();
+	//blx = ball->GetX();
+	//bly = ball->GetY();
 
-
+	/*
 	//ボールとバーの高さの半分を足したものよりも
 	//バーの中心とボールの中心の距離の絶対値の方が小さかったら当たり
 	//その距離より大きいやつは除外
@@ -156,7 +156,7 @@ bool CONTROL::All()
 
 
 	//バーの処理
-	//bar->All();
+	bar->All();
 
 	//ボールの動き
 	//back = ball->All();
@@ -174,29 +174,28 @@ bool CONTROL::All()
 }
 
 
-CONTROL::CONTROL(IDirect3DDevice9* pDevice3)
+CONTROL::CONTROL(HWND hwnd, IDirect3DDevice9* pDevice3)
 {
-	/*
+	
 	//バーとボールのインスタンスを生成
-	bar = new BAR;
-	ball = new BALL;
+	bar = new BAR(hwnd, pDevice3);
+	//ball = new BALL;
 
-	boundflag = false;
-	demolishflag = false;
+	/*boundflag = false;
+	demolishflag = false;*/
 
 	//バーの幅と高さ
-	bdwidth = bar->GetWidth();
-	bdheight = bar->GetHeight();
+	bdwidth = bar->width;
+	bdheight = bar->height;
 
 	//ボールの幅と高さ
-	blwidth = ball->GetWidth();
-	blheight = ball->GetHeight();
+	/*blwidth = ball->GetWidth();
+	blheight = ball->GetHeight();*/
 
 	//音声ファイル読み込み。
-	bh = LoadSoundMem("bound.mp3");
+	/*bh = LoadSoundMem("bound.mp3");
 	dh = LoadSoundMem("demolish.mp3");
 	*/
-
 	// ブロック配置用の変数
 	bkNum = 30;
 	int bkCol = 5;
@@ -217,10 +216,10 @@ CONTROL::CONTROL(IDirect3DDevice9* pDevice3)
 
 CONTROL::~CONTROL()
 {
-	/*
+	
 	delete bar;
-	delete ball;
-	*/
+	//delete ball;
+	
 	for (int i = 0; i < bkNum; ++i) {
 		delete block[i];
 	}
