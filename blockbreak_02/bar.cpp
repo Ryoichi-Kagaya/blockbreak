@@ -90,7 +90,6 @@ void BAR::Destroy() {
 
 BAR::~BAR()
 {
-	if (pTexture != NULL) pTexture->Release();
 	if (pDevice3D != NULL) pDevice3D->Release();
 	Destroy();
 

@@ -30,8 +30,7 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		(HBRUSH)GetStockObject(WHITE_BRUSH), NULL, WC_BASIC , NULL };
 
 	// シンプルウィンドウクラス作成
-	if (!RegisterClassEx(&wcex))
-		return false;
+	if (!RegisterClassEx(&wcex)) return false;
 
 	// ウィンドウ幅、高さはディスプレイに依存する。普通は4:3
 	const int WINDOW_WIDTH = 640;

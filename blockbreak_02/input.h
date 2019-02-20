@@ -3,12 +3,11 @@
 #define DIRECTINPUT_VERSION 0x0800
 #define KEY_MAX 256
 
-class Window;
 class Input
 {
 public:
 	// コンストラクタ
-	Input(Window* win);
+	Input(HWND hwnd);
 	// デストラクタ
 	~Input();
 	// キー入力
@@ -24,10 +23,8 @@ private:
 	// キーフォーマットのセット
 	HRESULT SetKeyFormat(void);
 	// キーの協調レベルのセット
-	HRESULT SetKeyCooperative(void);
+	HRESULT SetKeyCooperative(HWND hwnd);
 
-	// ウィンドウ
-	Window* win;
 	// 参照結果
 	HRESULT result;
 	// インプット

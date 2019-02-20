@@ -121,19 +121,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="bar.h" />
     <ClInclude Include="block.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="controll.h" />
     <ClInclude Include="Direct3D.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bar.cpp" />
     <ClCompile Include="block.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="controll.cpp" />
     <ClCompile Include="Direct3D.cpp" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

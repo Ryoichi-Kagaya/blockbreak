@@ -12,11 +12,10 @@ BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 	this->x = x;
 	this->y = y;
 	endflag = false;
-
 }
 
-BLOCK::~BLOCK() {
-	if (pTexture != NULL) pTexture->Release();
+BLOCK::~BLOCK()
+{
 	if (pDevice3D != NULL) pDevice3D->Release();
 }
 
