@@ -70,7 +70,6 @@ int BAR::GetY()
 
 bool BAR::All()
 {
-
 	//キー処理
 	KeyGet();
 
@@ -79,7 +78,6 @@ bool BAR::All()
 
 	//終了フラグを返す。
 	return endflag;
-
 }
 
 void BAR::Destroy() {

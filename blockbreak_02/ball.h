@@ -23,9 +23,6 @@ class BALL {
 		// 3Dデバイス
 		IDirect3DDevice9* pDevice3D;
 
-		//グラフィックハンドル
-		int gh;
-
 		void Draw();
 		void Destroy();
 		void Move();

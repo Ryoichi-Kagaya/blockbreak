@@ -3,7 +3,6 @@
 
 CONTROL::CONTROL(HWND hwnd, IDirect3DDevice9* pDevice3)
 {
-
 	//バーとボールのインスタンスを生成
 	bar = new BAR(hwnd, pDevice3);
 	ball = new BALL(pDevice3);
@@ -72,20 +71,20 @@ void CONTROL::HitCheckBallAndBar()
 	//その距離より大きいやつは除外
 	if (abs(bdy - bly) < blheight / 2 + bdheight / 2) {
 		//且つ、ボールがバー内にあれば当たり
-		if (bdx + bdwidth / 2 > blx &&
-			bdx - bdwidth / 2 < blx) {
+		if (bdx + bdwidth / 2 > blx && bdx - bdwidth / 2 < blx)
+		{
 			//バーの左端に当たっていれば、逆方向に飛ばす。
-			if (blx < bdx - bdwidth / 2 * 2 / 3) {
+			if (blx < bdx - bdwidth / 2 * 2 / 3) 
+			{
 				//ボールを反転
 				ball->SetDX(-1 * ball->GetDX());
 				//Yは跳ね返すだけ
 				ball->SetDY(ball->GetDY()*-1);
 				//バウンド音フラグを立てる。
 				boundflag = true;
-
-				//右端
 			}
-			else if (blx > bdx + bdwidth / 2 * 2 / 3) {
+			else if (blx > bdx + bdwidth / 2 * 2 / 3) 
+			{
 				//ボールを反転
 				ball->SetDX(-1 * ball->GetDX());
 				//Yは跳ね返すだけ

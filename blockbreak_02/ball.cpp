@@ -6,7 +6,8 @@
 BALL::BALL(IDirect3DDevice9* pDevice3D)
 {
 	this->pDevice3D = pDevice3D;
-	width, height = 18;
+	width = 18;
+	height = 18;
 
 	//y座標は固定なのでここで設定
 	y = 400;
@@ -22,7 +23,8 @@ BALL::BALL(IDirect3DDevice9* pDevice3D)
 	soundflag = false;
 }
 
-void BALL::Draw() {
+void BALL::Draw() 
+{
 	// テクスチャ作成
 	Texture tex;
 	tex.Load(pDevice3D, _T("ball.bmp"));
@@ -34,7 +36,8 @@ void BALL::Draw() {
 	sprite.Draw(pDevice3D, tex.pTexture);
 }
 
-void BALL::Move() {
+void BALL::Move() 
+{
 	//まず音はOFFにしとく
 	soundflag = false;
 
@@ -43,20 +46,24 @@ void BALL::Move() {
 	y += dy;
 
 	//画面はみ出し処理
-	if (x < width / 2) {
+	if (x < width / 2)
+	{
 		x = width / 2;
 		dx *= -1;
 		//当たったのでサウンドフラグを立てる
 		soundflag = true;
 	}
-	if (x > WIDTH - width / 2) {
+
+	if (x > WIDTH - width / 2) 
+	{
 		x = WIDTH - width / 2;
 		dx *= -1;
 		//当たったのでサウンドフラグを立てる
 		soundflag = true;
 	}
 
-	if (y < height / 2) {
+	if (y < height / 2)
+	{
 		y = height / 2;
 		dy *= -1;
 		//当たったのでサウンドフラグを立てる
@@ -64,7 +71,8 @@ void BALL::Move() {
 	}
 
 	//下にはみ出たらゲームオーバー
-	if (y > HEIGHT) {
+	if (y > HEIGHT)
+	{
 		endflag = true;
 	}
 }
@@ -94,12 +102,10 @@ int BALL::GetDX()
 	return dx;
 }
 
-
 int BALL::GetDY()
 {
 	return dy;
 }
-
 
 int BALL::GetWidth()
 {
@@ -129,6 +135,7 @@ void BALL::Destroy() {
 
 BALL::~BALL()
 {
+	if (pDevice3D != NULL) pDevice3D->Release();
 	Destroy();
 }
 
