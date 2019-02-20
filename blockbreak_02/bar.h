@@ -14,14 +14,16 @@ private:
 	// 3Dデバイス
 	IDirect3DDevice9* pDevice3D;
 
+	// インプット
+	Input* input;
+	
 	void Draw();
 	void KeyGet();
 	void Destroy();
 
 public:
 	static const int width, height; //縦、横幅
-	Input input;
-	BAR(IDirect3DDevice9* pDevice3D);
+	BAR(IDirect3DDevice9* pDevice3D, HWND hwnd);
 	~BAR();
 	bool All();
 	int GetX();

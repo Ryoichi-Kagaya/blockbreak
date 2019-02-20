@@ -6,10 +6,14 @@
 const int BAR::width = 100; // XXX: 画像変更する場合、どうしよう…
 const int BAR::height = 14;
 
-BAR::BAR(IDirect3DDevice9* pDevice3D)
+BAR::BAR(IDirect3DDevice9* pDevice3D, HWND hwnd)
 {
 	// 3Dデバイスを取り込む
 	this->pDevice3D = pDevice3D;
+
+	// インプットを作成
+	Input input(hwnd);
+	this->input = &input;
 
 	//y座標は固定なのでここで設定
 	y = 460;
@@ -38,15 +42,15 @@ void BAR::Draw() {
 void BAR::KeyGet()
 {
 
-	if (key[KEY_INPUT_LEFT] == 1) {
+	if (input->CheckKey(DIK_LEFT) == true) {
 		//左に移動。
 		x -= SPEED;
 	}
-	if (key[KEY_INPUT_RIGHT] == 1) {
+	if (input->CheckKey(DIK_RIGHT) == true) {
 		//右に移動
 		x += SPEED;
 	}
-	if (key[KEY_INPUT_ESCAPE] == 1) {
+	if (input->CheckKey(DIK_ESCAPE) == true) {
 		//エスケープキーが押されていれば終了フラグをtrueにする
 		endflag = true;
 	}

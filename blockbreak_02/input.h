@@ -1,5 +1,4 @@
 #pragma once
-#include <dinput.h>
 #define DIRECTINPUT_VERSION 0x0800
 #define KEY_MAX 256
 
@@ -28,9 +27,9 @@ private:
 	// 参照結果
 	HRESULT result;
 	// インプット
-	LPDIRECTINPUT8 input;
+	LPDIRECTINPUT input;
 	// インプットデバイス
-	LPDIRECTINPUTDEVICE8 key;
+	LPDIRECTINPUTDEVICE key;
 	// キー情報
 	BYTE keys[KEY_MAX];
 	// 前のキー情報

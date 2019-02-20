@@ -9,9 +9,6 @@
 #include "pch.h"
 #include "input.h"
 
-#pragma comment(lib, "dinput8.lib")
-#pragma comment(lib, "dxguid.lib")
-
 // ‰ð•úƒ}ƒNƒ
 #define Release(X) { if((X) != nullptr) (X)->Release(); (X) = nullptr; }
 
