@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "bar.h"
-//#include "ball.h"
+#include "ball.h"
 #include "block.h"
 
 class CONTROL {
@@ -11,7 +11,7 @@ private:
 	BAR *bar;
 
 	//ボールクラスのポインタ
-	//BALL *ball;
+	BALL *ball;
 
 	//ブロックの個数、ブロッククラスのポインタ
 	int bkNum = 15; // XXX: 初期値入れとかないと、エラーがこわい
@@ -20,10 +20,8 @@ private:
 	//ボールとバーとブロックの座標
 	int bdx, bdy, blx, bly, bkx, bky;
 
-
 	//ボールとバーとブロックの画像の幅と高さ
 	int bdwidth, bdheight, blwidth, blheight, bkwidth, bkheight;
-
 
 	//バウンド音とぶつかり音のフラグ
 	bool boundflag, demolishflag;
@@ -40,5 +38,4 @@ public:
 	CONTROL(HWND hwnd, IDirect3DDevice9* pDevice3);
 	~CONTROL();
 };
-
 

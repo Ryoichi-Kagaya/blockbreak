@@ -121,10 +121,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ball.h" />
     <ClInclude Include="bar.h" />
     <ClInclude Include="block.h" />
     <ClInclude Include="control.h" />
-    <ClInclude Include="controll.h" />
     <ClInclude Include="Direct3D.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="pch.h" />
@@ -132,10 +132,10 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ball.cpp" />
     <ClCompile Include="bar.cpp" />
     <ClCompile Include="block.cpp" />
     <ClCompile Include="control.cpp" />
-    <ClCompile Include="controll.cpp" />
     <ClCompile Include="Direct3D.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />

@@ -26,7 +26,6 @@ BAR::BAR(HWND hwnd, IDirect3DDevice9* pDevice3D)
 }
 
 void BAR::Draw() {
-
 	// テクスチャ作成
 	Texture tex;
 	tex.Load(pDevice3D, _T("bar.bmp"));
@@ -40,7 +39,6 @@ void BAR::Draw() {
 
 void BAR::KeyGet()
 {
-
 	if (input->CheckKey(DIK_LEFT) == true) {
 		//左に移動。
 		x -= SPEED;
@@ -84,12 +82,10 @@ bool BAR::All()
 
 }
 
-
 void BAR::Destroy() {
 
 
 }
-
 
 BAR::~BAR()
 {
