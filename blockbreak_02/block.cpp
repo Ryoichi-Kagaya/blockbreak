@@ -53,7 +53,7 @@ void BLOCK::Draw()
 		sprite.Draw(pDevice3D, tex.pTexture);
 	}
 	else {
-		// delete this; // XXX: 透過処理しようと思ったが保留…
+		 // XXX: 透過処理しようと思ったが保留…
 	}
 }
 
