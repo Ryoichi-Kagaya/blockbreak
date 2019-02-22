@@ -35,23 +35,21 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	// ウィンドウ幅、高さはディスプレイに依存する。普通は4:3
 	const int WINDOW_WIDTH = 640;
 	const int WINDOW_HEIGHT = 480;
+
 	// ウィンドウの作成
 	HWND hWnd = CreateWindowEx(0, WC_BASIC,
 		_T("Application"), WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_VISIBLE,
 		CW_USEDEFAULT, CW_USEDEFAULT, WINDOW_WIDTH, WINDOW_HEIGHT, NULL, NULL, hInstance, NULL);
 
-	////////////////////////////////////////////////////////////////////////////
 	// Direct3Dの初期化
-	////////////////////////////////
 	Direct3D direct3d;
 	direct3d.Create(hWnd, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-	////////////////////////////////
 	// コントロール作成
-	////////////////////////////////
 	CONTROL control(hWnd, direct3d.pDevice3D);
 
-	////////////////////////////////////////////////////////////////
+	// ゲーム終了フラグ
+	bool endFlag = false;
 
 	// メッセージループ
 	MSG msg = {};
@@ -63,8 +61,6 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		// メッセージ処理をしていないとき（ここにDirectXの処理を書く）
 		else {
 
-			////////////////////////////////////////////////////////////////
-
 			// 描画開始
 			if (SUCCEEDED(direct3d.pDevice3D->BeginScene()))
 			{
@@ -73,15 +69,15 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 				direct3d.pDevice3D->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_STENCIL | D3DCLEAR_ZBUFFER, ClearColor, 1.0f, 0);
 				
 				// コントロール作動！
-				control.All();
+				// ゲームオーバー時にtrueが返ってくる
+				endFlag = control.All();
 
 				// 描画終了
 				direct3d.pDevice3D->EndScene();
 			}
 			// 描画反映
 			direct3d.pDevice3D->Present(NULL, NULL, NULL, NULL);
-
-			////////////////////////////////////////////////////////////////
+			if (endFlag == true) break;
 		}
 	}
 

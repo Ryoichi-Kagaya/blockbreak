@@ -39,13 +39,12 @@ bool BLOCK::GetFlag()
 
 void BLOCK::Draw()
 {
-	// スプライト作成
-	Sprite sprite;
-	sprite.SetWidth(width, height);
-	sprite.SetPos(x, y);
-
 	//ブロックが壊れてないときだけ描画
 	if (!endflag) {
+		// スプライト作成
+		Sprite sprite;
+		sprite.SetWidth(width, height);
+		sprite.SetPos(x, y);
 		sprite.Draw(pDevice3D, tex.pTexture);
 	}
 	else {
