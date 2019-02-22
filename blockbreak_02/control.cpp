@@ -68,39 +68,13 @@ void CONTROL::HitCheckBallAndBar()
 	//ボールとバーの高さの半分を足したものよりも
 	//バーの中心とボールの中心の距離の絶対値の方が小さかったら当たり
 	//その距離より大きいやつは除外
-	if (abs(bdy - bly) < blheight / 2 + bdheight / 2) {
-		//且つ、ボールがバー内にあれば当たり
-		if (bdx + bdwidth / 2 > blx && bdx - bdwidth / 2 < blx)
-		{
-			//バーの左端に当たっていれば、逆方向に飛ばす。
-			if (blx < bdx - bdwidth / 2 * 2 / 3) 
-			{
-				//ボールを反転
-				ball->SetDX(-1 * ball->GetDX());
-				//Yは跳ね返すだけ
-				ball->SetDY(ball->GetDY()*-1);
-				//バウンド音フラグを立てる。
-				boundflag = true;
-			}
-			else if (blx > bdx + bdwidth / 2 * 2 / 3) 
-			{
-				//ボールを反転
-				ball->SetDX(-1 * ball->GetDX());
-				//Yは跳ね返すだけ
-				ball->SetDY(ball->GetDY()*-1);
-				//バウンド音フラグを立てる。
-				boundflag = true;
-
-				//それ以外はただ反射
-			}
-			else {
-				//xは何もなし
-				//Yは跳ね返すだけ
-				ball->SetDY(ball->GetDY()*-1);
-				//バウンド音フラグを立てる。
-				boundflag = true;
-			}
-		}
+	if (abs(bdx - blx) < (blwidth / 2 + bdwidth / 2) && 
+		abs(bdy - bly) < (blheight / 2 + bdheight / 2)) 
+	{
+		//Yを跳ね返すだけ
+		ball->SetDY(ball->GetDY()*-1);
+		//バウンド音フラグを立てる。
+		boundflag = true;
 	}
 }
 

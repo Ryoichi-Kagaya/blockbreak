@@ -3,12 +3,6 @@ c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\input.h(3): warning C4
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h(42): note: 'DIRECTINPUT_VERSION' の以前の定義を確認してください
 c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\control.cpp(35): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
 c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\control.cpp(34): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\control.cpp(121): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\control.cpp(122): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-  main.cpp
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\input.h(3): warning C4005: 'DIRECTINPUT_VERSION': マクロが再定義されました。
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h(42): note: 'DIRECTINPUT_VERSION' の以前の定義を確認してください
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\main.cpp(28): warning C4302: '型キャスト': 'LPSTR' から 'WORD' へ切り詰めます。
-c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\main.cpp(29): warning C4302: '型キャスト': 'LPSTR' から 'WORD' へ切り詰めます。
-  コードを生成中...
+c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\control.cpp(95): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\ryoichi\source\repos\blockbreak_02\blockbreak_02\control.cpp(96): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
   blockbreak_02.vcxproj -> C:\Users\ryoichi\source\repos\blockbreak_02\Debug\blockbreak_02.exe
