@@ -3,6 +3,7 @@
 #include "bar.h"
 #include "ball.h"
 #include "block.h"
+#define BK_NUM 15
 
 class CONTROL {
 private:
@@ -14,8 +15,7 @@ private:
 	BALL *ball;
 
 	//ブロックの個数、ブロッククラスのポインタ
-	int bkNum = 15; // XXX: 初期値入れとかないと、エラーがこわい
-	BLOCK* block[100];
+	BLOCK* block[BK_NUM];
 
 	//ボールとバーとブロックの座標
 	int bdx, bdy, blx, bly, bkx, bky;

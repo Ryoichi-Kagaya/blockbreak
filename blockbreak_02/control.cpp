@@ -24,13 +24,12 @@ CONTROL::CONTROL(HWND hwnd, IDirect3DDevice9* pDevice3)
 	
 	// ブロック配置用の変数
 	// XXX: もうちょい変数減らしたい
-	bkNum = 15;
 	int bkCol = 5;
 	int bkRow = 3;
 	int bkMargin = 10;
 
 	// ブロックを配置
-	for (int i = 0; i < bkNum; ++i) {
+	for (int i = 0; i < BK_NUM; ++i) {
 		block[i] = new BLOCK(pDevice3,
 			(block[i]->width + bkMargin) * (i % bkCol) + (block[i]->width / 2 + bkMargin),
 			(block[i]->height + bkMargin) * (i % bkRow) + (block[i]->height / 2 + bkMargin));
@@ -45,7 +44,7 @@ CONTROL::~CONTROL()
 	delete bar;
 	delete ball;
 
-	for (int i = 0; i < bkNum; ++i) {
+	for (int i = 0; i < BK_NUM; ++i) {
 		delete block[i];
 	}
 }
@@ -115,57 +114,26 @@ void CONTROL::HitCheckBallAndBlock()
 	bly = ball->GetY();
 
 	//ブロック全てをループ
-	for (int i = 0; i < 12; ++i) {
+	for (int i = 0; i < BK_NUM; ++i) {
 		//壊れてない奴だけ対象
-		if (!block[i]->GetFlag()) {
+		if (!block[i]->GetFlag()) 
+		{
 			bkx = block[i]->GetX();
 			bky = block[i]->GetY();
 
-			//ブロックの上との当たり判定
-			if (blx<bkx + bkwidth / 2 && blx>bkx - bkwidth / 2 &&
-				bly + blheight / 2 > bky - bkheight / 2 && bly + blheight / 2 < bky + bkheight / 2) {
+			if (abs(blx-bkx) < (blwidth/2 + bkwidth/2) &&
+				abs(bly - bky) < (blheight / 2 + bkheight / 2))
+			{
 				//フラグをオフに
 				block[i]->SetFlag(true);
+
 				//破壊音フラグを立てる
 				demolishflag = true;
+
 				//ボールはただ跳ね返すだけ
-				ball->SetDY(ball->GetDY()*-1);
-
-				//ブロックの下との当たり判定
-			}
-			else if (blx<bkx + bkwidth / 2 && blx>bkx - bkwidth / 2 &&
-				bly - blheight / 2 > bky - bkheight / 2 && bly - blheight / 2 < bky + bkheight / 2) {
-
-				//フラグをオフに
-				block[i]->SetFlag(true);
-				//破壊音フラグを立てる
-				demolishflag = true;
-				//ボールはただ跳ね返すだけ
-				ball->SetDY(ball->GetDY()*-1);
-
-				//ブロックの左との当たり判定
-			}
-			else if (blx + blwidth / 2 < bkx - bkwidth / 2 + blwidth && blx + blwidth / 2 > bkx - bkwidth / 2 &&
-				bly > bky - bkheight / 2 && bly < bky + bkheight / 2) {
-
-				//フラグをオフに
-				block[i]->SetFlag(true);
-				//破壊音フラグを立てる
-				demolishflag = true;
-				//ボールはただ跳ね返すだけ
+				// XXX: 反射の仕方も考えたい
 				ball->SetDX(ball->GetDX()*-1);
-
-				//ブロックの右との当たり判定
-			}
-			else if (blx - blwidth / 2 < bkx + bkwidth / 2 && blx - blwidth / 2 > bkx + bkwidth / 2 - blwidth &&
-				bly > bky - bkheight / 2 && bly < bky + bkheight / 2) {
-
-				//フラグをオフに
-				block[i]->SetFlag(true);
-				//破壊音フラグを立てる
-				demolishflag = true;
-				//ボールはただ跳ね返すだけ
-				ball->SetDX(ball->GetDX()*-1);
+				ball->SetDY(ball->GetDY()*-1);
 			}
 		}
 	}
@@ -189,7 +157,7 @@ bool CONTROL::All()
 {
 	bool back = true;
 
-	for (int i = 0; i < bkNum; ++i) {
+	for (int i = 0; i < BK_NUM; ++i) {
 		block[i]->All();
 	}
 
