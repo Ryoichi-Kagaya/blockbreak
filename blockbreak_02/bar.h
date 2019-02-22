@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include "Texture.h"
 #include "input.h"
 #define SPEED 4
 #define wWidth 640
@@ -14,6 +15,9 @@ class BAR {
 
 		// 3Dデバイス
 		IDirect3DDevice9* pDevice3D;
+
+		// テクスチャー
+		Texture tex;
 
 		// インプット
 		Input* input;

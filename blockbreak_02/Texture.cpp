@@ -1,11 +1,9 @@
 #include "pch.h"
 #include "Texture.h"
 
-
 Texture::Texture() {
 	pTexture = NULL;
 }
-
 
 Texture::~Texture()
 {
@@ -13,7 +11,6 @@ Texture::~Texture()
 	if (pTexture != NULL)
 		pTexture->Release();
 }
-
 
 bool Texture::Load(IDirect3DDevice9* pDevice3D, const TCHAR* FileName)
 {

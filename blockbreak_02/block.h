@@ -1,10 +1,12 @@
 #pragma once
 #include "pch.h"
+#include "Texture.h"
 
 class BLOCK {
 
 private:
 	IDirect3DDevice9* pDevice3D;
+	Texture tex;
 	float x, y; //座標
 	bool endflag; //ブロックが壊れてるか壊れてないかのフラグ
 	void Draw();

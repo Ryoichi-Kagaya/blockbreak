@@ -11,6 +11,9 @@ BAR::BAR(HWND hwnd, IDirect3DDevice9* pDevice3D)
 	// 3Dデバイスを取り込む
 	this->pDevice3D = pDevice3D;
 
+	// 画像をロード
+	tex.Load(pDevice3D, _T("bar.bmp"));
+
 	// インプットを作成
 	input = new Input(hwnd);
 
@@ -82,7 +85,6 @@ bool BAR::All()
 
 void BAR::Destroy() {
 
-
 }
 
 BAR::~BAR()
@@ -90,6 +92,5 @@ BAR::~BAR()
 	if (pDevice3D != NULL) pDevice3D->Release();
 	delete input;
 	Destroy();
-
 }
 

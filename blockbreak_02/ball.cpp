@@ -6,6 +6,7 @@
 BALL::BALL(IDirect3DDevice9* pDevice3D)
 {
 	this->pDevice3D = pDevice3D;
+	tex.Load(pDevice3D, _T("ball.bmp"));
 	width = 18;
 	height = 18;
 
@@ -25,10 +26,6 @@ BALL::BALL(IDirect3DDevice9* pDevice3D)
 
 void BALL::Draw() 
 {
-	// テクスチャ作成
-	Texture tex;
-	tex.Load(pDevice3D, _T("ball.bmp"));
-
 	// スプライト作成、描画
 	Sprite sprite;
 	sprite.SetWidth(width, height);

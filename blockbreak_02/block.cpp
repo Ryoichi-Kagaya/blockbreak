@@ -9,6 +9,7 @@ const int BLOCK::height = 28;
 BLOCK::BLOCK(IDirect3DDevice9* pDevice3D, float x, float y)
 {
 	this->pDevice3D = pDevice3D;
+	tex.Load(pDevice3D, _T("block.bmp"));
 	this->x = x;
 	this->y = y;
 	endflag = false;
@@ -39,10 +40,6 @@ bool BLOCK::GetFlag()
 
 void BLOCK::Draw()
 {
-	// テクスチャ作成
-	Texture tex;
-	tex.Load(pDevice3D, _T("block.bmp"));
-
 	// スプライト作成
 	Sprite sprite;
 	sprite.SetWidth(width, height);

@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include "Texture.h"
 #define WIDTH 640
 #define HEIGHT 480
 
@@ -22,6 +23,9 @@ class BALL {
 
 		// 3Dデバイス
 		IDirect3DDevice9* pDevice3D;
+
+		// テクスチャー
+		Texture tex;
 
 		void Draw();
 		void Destroy();
