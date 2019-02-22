@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "bar.h"
-#include "Texture.h"
 #include "Sprite.h"
 
 const int BAR::width = 100; // XXX: ‰æ‘œ•ÏX‚·‚éê‡A‚Ç‚¤‚µ‚æ‚¤c

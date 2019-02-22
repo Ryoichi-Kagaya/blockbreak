@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "ball.h"
-#include "Texture.h"
 #include "Sprite.h"
 
 BALL::BALL(IDirect3DDevice9* pDevice3D)
